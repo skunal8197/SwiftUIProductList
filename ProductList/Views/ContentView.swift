@@ -9,13 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    var products: [Product]
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            List(products){ product in
+                SingleProduct(product: product)
+            }.navigationBarTitle(Text("Products"))
+        }
     }
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(products: allProducts)
     }
 }
+
+
